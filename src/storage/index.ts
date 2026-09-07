@@ -1,0 +1,7 @@
+export * from './db'
+export * as documentsStore from './documents'
+export * as foldersStore from './folders'
+export * as settingsStore from './settings'
+export * as tabsStore from './tabs'
+export * as trashStore from './trash'
+export * as versionsStore from './versions'

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Markdown Workspace</title>
+    <!--
+      GitHub Pages has no server-side rewrite, so a hard refresh on a client
+      route (e.g. /document/abc) 404s. This encodes the intended path into a
+      query string and redirects to index.html, which decodes it and restores
+      the real URL via history.replaceState before the router mounts.
+      Based on https://github.com/rafgraph/spa-github-pages.
+
+      If you deploy to a GitHub Pages *project* site (username.github.io/repo/,
+      rather than a custom domain or username.github.io root), set
+      pathSegmentsToKeep to 1 so the "/repo" segment is preserved.
+    -->
+    <script>
+      var pathSegmentsToKeep = 0
+      var l = window.location
+      var segments = l.pathname.split('/').slice(1)
+      var base = segments.slice(0, pathSegmentsToKeep).join('/')
+      var rest = segments.slice(pathSegmentsToKeep).join('/')
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          (base ? '/' + base : '') + '/?p=/' + rest.replace(/&/g, '~and~') + l.search.replace(/^\?/, '&').replace(/&/g, '~and~') + '&h=' + l.hash.slice(1)
+      )
+    </script>
+  </head>
+  <body></body>
+</html>
